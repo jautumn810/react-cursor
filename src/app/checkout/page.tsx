@@ -8,7 +8,6 @@ import { Elements } from "@stripe/react-stripe-js"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Separator } from "@/components/ui/separator"
@@ -16,9 +15,7 @@ import {
   ArrowLeft,
   CreditCard,
   Truck,
-  Lock,
-  CheckCircle,
-  AlertCircle
+  Lock
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"

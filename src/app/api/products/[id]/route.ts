@@ -36,7 +36,7 @@ export async function GET(
     
     // Calculate average rating
     const avgRating = product.reviews.length > 0
-      ? product.reviews.reduce((sum, review) => sum + review.rating, 0) / product.reviews.length
+      ? product.reviews.reduce((sum: number, review: any) => sum + review.rating, 0) / product.reviews.length
       : 0
     
     // Format product data
@@ -63,7 +63,7 @@ export async function GET(
     }
     
     // Format reviews
-    const reviews = product.reviews.map(review => ({
+    const reviews = product.reviews.map((review: any) => ({
       id: review.id,
       userId: review.userId,
       userName: review.user.name,

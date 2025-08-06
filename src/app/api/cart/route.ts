@@ -53,7 +53,7 @@ export async function GET() {
       }
     })
     
-    const formattedItems = cartItems.map(item => ({
+    const formattedItems = cartItems.map((item: any) => ({
       id: item.productId,
       name: item.product.name,
       price: item.product.price,

@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, Suspense } from "react"
 import { useSearchParams } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { CheckCircle, Package, Truck, Home, ShoppingBag } from "lucide-react"
 import Link from "next/link"
 
-export default function CheckoutSuccessPage() {
+function CheckoutSuccessContent() {
   const searchParams = useSearchParams()
   const [orderDetails, setOrderDetails] = useState<any>(null)
   const [loading, setLoading] = useState(true)
@@ -83,7 +83,7 @@ export default function CheckoutSuccessPage() {
               
               <div className="pt-4 border-t">
                 <p className="text-sm text-gray-600">
-                  We'll send you an email confirmation with your order details and tracking information.
+                  We&apos;ll send you an email confirmation with your order details and tracking information.
                 </p>
               </div>
             </CardContent>
@@ -94,7 +94,7 @@ export default function CheckoutSuccessPage() {
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Truck className="h-5 w-5" />
-                What's Next?
+                What&apos;s Next?
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -174,4 +174,19 @@ export default function CheckoutSuccessPage() {
       <Footer />
     </div>
   )
-} 
+}
+
+export default function CheckoutSuccessPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading...</p>
+        </div>
+      </div>
+    }>
+      <CheckoutSuccessContent />
+    </Suspense>
+  )
+}

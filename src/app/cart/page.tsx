@@ -5,7 +5,6 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { Separator } from "@/components/ui/separator"
 import { 
@@ -13,7 +12,6 @@ import {
   Trash2, 
   Minus, 
   Plus, 
-  ArrowRight,
   Package,
   Truck,
   CreditCard,
@@ -30,7 +28,6 @@ export default function CartPage() {
     items, 
     removeItem, 
     updateQuantity, 
-    clearCart, 
     getTotal, 
     getSubtotal, 
     getItemCount, 

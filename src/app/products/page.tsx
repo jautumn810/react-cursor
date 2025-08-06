@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSession } from "next-auth/react"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
@@ -11,7 +11,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Slider } from "@/components/ui/slider"
-import { ShoppingCart, Heart, Star, Grid3X3, List, Filter, Search, ChevronLeft, ChevronRight } from "lucide-react"
+import { ShoppingCart, Heart, Star, Grid3X3, List, Search, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useCartStore } from "@/store/cart"
@@ -45,7 +45,6 @@ interface Category {
 }
 
 export default function ProductsPage() {
-  const { data: session } = useSession()
   const { addItem } = useCartStore()
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
@@ -56,7 +55,6 @@ export default function ProductsPage() {
   const [sortBy, setSortBy] = useState("newest")
   const [priceRange, setPriceRange] = useState([0, 200])
   const [currentPage, setCurrentPage] = useState(1)
-  const [showFilters, setShowFilters] = useState(false)
   const [totalPages, setTotalPages] = useState(1)
   const [totalProducts, setTotalProducts] = useState(0)
   const itemsPerPage = 12

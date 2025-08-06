@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { useParams, useRouter } from "next/navigation"
-import { useSession } from "next-auth/react"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
@@ -64,7 +64,6 @@ interface Review {
 export default function ProductDetailPage() {
   const params = useParams()
   const router = useRouter()
-  const { data: session } = useSession()
   const { addItem } = useCartStore()
   const [product, setProduct] = useState<Product | null>(null)
   const [reviews, setReviews] = useState<Review[]>([])

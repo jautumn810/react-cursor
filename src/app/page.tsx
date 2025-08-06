@@ -1,6 +1,6 @@
 "use client"
 
-import { useSession } from "next-auth/react"
+
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Card, CardContent } from "@/components/ui/card"
@@ -12,7 +12,6 @@ import Link from "next/link"
 import Image from "next/image"
 
 export default function Home() {
-  const { data: session } = useSession()
 
   // Hero carousel data
   const heroSlides = [

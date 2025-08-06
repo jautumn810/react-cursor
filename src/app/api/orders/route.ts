@@ -37,7 +37,7 @@ export async function POST(request: NextRequest) {
     }
     
     const body = await request.json()
-    const { shippingAddress, paymentIntentId, shippingMethod, items } = createOrderSchema.parse(body)
+    const { shippingAddress, paymentIntentId, items } = createOrderSchema.parse(body)
     
     // Verify payment intent with Stripe
     const paymentIntent = await stripe.paymentIntents.retrieve(paymentIntentId)
@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
       
       // Create order items
       const orderItems = await Promise.all(
-        items.map((item: any) =>
+        items.map((item) =>
           tx.orderItem.create({
             data: {
               orderId: newOrder.id,
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
       
       // Update product stock
       await Promise.all(
-        items.map((item: any) =>
+        items.map((item) =>
           tx.product.update({
             where: { id: item.productId },
             data: {
